@@ -80,6 +80,20 @@ class Translator {
     return [translation, translationWithHighlight];
   }
 
+  replaceAll(text, matchesMap) {
+    const re = new RegExp(Object.keys(matchesMap).join('|'), 'gi');
+    return text.replace(re, (matched) => matchesMap[matched.toLowerCase()]);
+  }
+
+  replaceAllWithHighlight(text, matchesMap) {
+    const re = new RegExp(Object.keys(matchesMap).join('|'), 'gi');
+    return text.replace(re, (matched) => {
+      return `<span class="highlight">${
+        matchesMap[matched.toLowerCase()]
+      }</span>`;
+    });
+  }
+
 }
 
 module.exports = Translator;
