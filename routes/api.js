@@ -18,6 +18,20 @@ module.exports = function (app) {
         return;
       }
 
-      
+      let translation = '';
+      if (locale == 'american-to-british')  {
+        translation = translator.toBritishEnglish(text);
+      } else if (locale == 'british-to-american') {
+        translation = translator.toAmericanEnglish(text);
+      } else {
+        res.json({ error: 'Invalid value for locale field' });
+        return;
+      }
+
+      if (translation == text || !translation) {
+        res.json({ text, translation: 'Everything looks good to me!' });
+      } else {
+        res.json({ text, translation: translation[1] });
+      }
     });
 };
