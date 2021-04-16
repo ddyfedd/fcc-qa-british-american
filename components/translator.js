@@ -72,7 +72,7 @@ class Translator {
 
     if (Object.keys(matchesMap).length === 0) return null;
 
-    console.log('matchesMap: ', matchesMap);
+    //console.log('matchesMap: ', matchesMap);
     const translation = this.replaceAll(text, matchesMap);
 
     const translationWithHighlight = this.replaceAllWithHighlight(text, matchesMap);

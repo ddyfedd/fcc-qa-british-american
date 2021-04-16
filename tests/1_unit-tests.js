@@ -2,6 +2,7 @@ const chai = require('chai');
 const assert = chai.assert;
 
 const Translator = require('../components/translator.js');
+let translator = new Translator();
 
 suite('Unit Tests', () => {
 
@@ -86,7 +87,7 @@ suite('Unit Tests', () => {
     });
     test("Translate: I've just got bits and bobs in my bum bag. to American English", (done) => {
       assert.equal(translator.toAmericanEnglish("I've just got bits and bobs in my bum bag.")[0], 
-      "I've got odds and ends in my fanny pack.");
+      "I've just got odds and ends in my fanny pack.");
       done();
     });
     test("Translate: The car boot sale at Boxted Airfield was called off. to American English", (done) => {
