@@ -113,12 +113,25 @@ suite('Unit Tests', () => {
 
   suite('Highlight translation', () => {
     test('Highlight: Mangoes are my favorite fruit.', (done) => {
-      assert.equal();
+      assert.equal(translator.toBritishEnglish("Mangoes are my favorite fruit.")[1], 
+      'Mangoes are my <span class="highlight">favourite</span> fruit.');
       done();
     });
-    test('Highlight: I ate yogurt for breakfast.', (done) => {});
-    test('Highlight: We watched the footie match for a while.', (done) => {});
-    test('Highlight: Paracetamol takes up to an hour to work.', (done) => {});
+    test('Highlight: I ate yogurt for breakfast.', (done) => {
+      assert.equal(translator.toBritishEnglish("I ate yogurt for breakfast.")[1], 
+      'I ate <span class="highlight">yoghurt</span> for breakfast.');
+      done();
+    });
+    test('Highlight: We watched the footie match for a while.', (done) => {
+      assert.equal(translator.toAmericanEnglish("We watched the footie match for a while.")[1], 
+      'We watched the <span class="highlight">soccer</span> match for a while.');
+      done();
+    });
+    test('Highlight: Paracetamol takes up to an hour to work.', (done) => {
+      assert.equal(translator.toAmericanEnglish("Paracetamol takes up to an hour to work.")[1], 
+      '<span class="highlight">Tylenol</span> takes up to an hour to work.');
+      done();
+    });
   });
 
 });
